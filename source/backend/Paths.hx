@@ -14,10 +14,10 @@ class Paths
     }
 
     public static function music(name:String)
-        return "assets/audio/music/"+name+'.ogg';
+        return "assets/music/"+name+'.ogg';
 
     public static function sound(name:String)
-        return "assets/audio/sounds/"+name+'.ogg';
+        return "assets/sounds/"+name+'.ogg';
 
     public static function font(name:String)
         return "assets/fonts/"+ name;

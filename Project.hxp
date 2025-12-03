@@ -1,0 +1,69 @@
+import hxp.*;
+import lime.tools.*;
+
+class Project extends HXProject
+{
+    static final gameMeta = 
+    {
+        title: "FlxProject",    // Title of the game window
+        version: "0.0.1",       // Version of the current build of the game
+        company: "HaxeFlixel",  // Company name used for HaxeFlixel save data
+        file: "FlxProject",     // Title of the game executable/file name
+        exportPath: "export",   // Export path for the builds after compiling
+        main: "Main",           // The main state of the game
+        width: 640,             // Width of the game window
+        height: 480,            // Height of the game window
+        framerate: 60           // I mean... do I have to explain what this does?
+    }
+
+    public function new()
+    {
+        super();
+
+        includeAssets("assets");
+        sources.push("source");
+
+        setupLibraries();
+        setupGame();
+        setupDefs();
+    }
+
+    function setupGame()
+    {
+        // -- App Settings -- //
+
+        meta.title = gameMeta.title;
+        meta.version = gameMeta.version;
+        meta.company = gameMeta.company;
+
+        app.file = gameMeta.file;
+        app.path = gameMeta.exportPath;
+        app.main = gameMeta.main;
+
+        // -- Window Settings -- //
+
+        window.width = gameMeta.width;
+        window.height = gameMeta.height;
+        window.background = 0xffffffff;
+        window.fps = gameMeta.framerate;
+        window.hardware = true;
+        window.vsync = false;
+    }
+    
+    function setupLibraries()
+    {
+        haxelibs.push(new Haxelib("lime"));
+        haxelibs.push(new Haxelib('flixel'));
+        haxelibs.push(new Haxelib('flixel-addons'));
+    }
+
+    function setupDefs()
+    {
+        haxedefs.set("FLX_NO_FOCUS_LOST_SCREEN", 1);
+        haxedefs.set("no-deprecation-warnings", 1);
+        haxedefs.set('FLX_NO_TOUCH', 1);
+
+        haxedefs.set('FLX_NO_DEBUG', 1);
+        haxedefs.set('NAPE_RELEASE_BUILD', 1);
+    }
+}
