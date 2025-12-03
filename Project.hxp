@@ -9,7 +9,7 @@ class Project extends HXProject
         version: "0.0.1",       // Version of the current build of the game
         company: "HaxeFlixel",  // Company name used for HaxeFlixel save data
         file: "FlxProject",     // Title of the game executable/file name
-        exportPath: "export",   // Export path for the builds after compiling
+        exportPath: "_export",   // Export path for the builds after compiling
         main: "Main",           // The main state of the game
         width: 640,             // Width of the game window
         height: 480,            // Height of the game window
